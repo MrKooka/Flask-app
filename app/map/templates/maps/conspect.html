@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}
+selfedu7
+{% endblock title %}
+
+{% block content %}
+
+{{super()}}
+<link href="{{ url_for('static', filename='css/rainbow.css') }}" rel="stylesheet" >
+<link href="{{ url_for('static', filename='css/css.css') }}" rel="stylesheet" >
+
+<div class="d-flex flex-nowrap bd-highlight">
+  <div class="order-3 p-2 bd-highlight">
+  	<p>Декоратор errorhandler - нужен для отлова ошибок. Пишем следующий код во файле view.py</p>
+  </div>
+ 
+ <div class="order-1 p-2 bd-highlight "><p><pre><code data-language="python">
+@app.errorhandler(404)
+def pageNotFount(error):
+	return render_template('page404.html')
+		</code></pre></p>
+	</div>
+</div>
+<div class="d-flex flex-nowrap bd-highlight">
+  <div class="order-3 p-2 bd-highlight">
+  	<p>Функция Flash() нужна для вывода алертов с мнговенной информации</p>
+  </div>
+ 
+ <div class="order-1 p-2 bd-highlight "><p><pre><code data-language="python">
+@maps.route('/form',methods = ['POST','GET'])
+def form():
+	if request.method == 'POST':
+		if len(request.form['q']) > 2:
+			flash('Строка больше двух',category = 'success')
+		else:
+			flash('Меньше ёп')	
+		
+		print(request.form['q'])
+	return render_template('maps/form.html')
+		</code></pre></p>
+	</div>
+</div>
+
+
+<script src="{{url_for('static', filename='js/rainbow-custom.min.js')}}"></script>
+
+
+
+{% endblock content %}

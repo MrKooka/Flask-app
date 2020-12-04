@@ -1,0 +1,10 @@
+.right{
+	
+	position: absolute;
+	right: 0;
+}
+.left{
+	position: absolute;
+	ltft: 0;
+	width: 50%
+}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ {% for cat,m in  get_flashed_messages(True) %}
+{% if cat=='success' %}
+      <div class="alert alert-primary" role="alert">{{m}}{{cat}}</div>
+{% else %}
+      <div class="alert alert-danger" role="alert">{{m}}</div>
+{% endif %}
+   
+
+
+ {% endfor %}
+<div class="col-md-6">
+<form method = 'POST' action="{{ url_for('maps.form') }}">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <input type="text" class='form-control' name ='q'> 
+   
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+
+<div class="col-md-6">
+<form method = 'POST' action="{{ url_for('maps.form2') }}">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <input type="text" class='form-control' name ='alert'> 
+   
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+<h1>{{get_flashed_messages()}}</h1>
+
+{% endblock content %}
