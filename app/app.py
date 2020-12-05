@@ -50,7 +50,7 @@ class HomeAdminView(AdminMixin,AdminIndexView):
 admin = Admin(app,'FlaskApp',url='',index_view =HomeAdminView(name ='Home'))
 admin.add_view(PostAdminView(Post, db.session))
 admin.add_view(TagAdminView(Tag, db.session))
-#lol kek azaza
+
 
 
 
